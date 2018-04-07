@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		DFB7B3F520796F9700CA23E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB7B3F420796F9700CA23E5 /* AppDelegate.swift */; };
-		DFB7B3F720796F9700CA23E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB7B3F620796F9700CA23E5 /* ViewController.swift */; };
+		DFB7B3F720796F9700CA23E5 /* BeginnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB7B3F620796F9700CA23E5 /* BeginnerViewController.swift */; };
 		DFB7B3FA20796F9700CA23E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB7B3F820796F9700CA23E5 /* Main.storyboard */; };
 		DFB7B3FC20796F9800CA23E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB7B3FB20796F9800CA23E5 /* Assets.xcassets */; };
 		DFB7B3FF20796F9800CA23E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB7B3FD20796F9800CA23E5 /* LaunchScreen.storyboard */; };
+		E0D3F7532079806F00C2A49A /* LocationListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3F7522079806F00C2A49A /* LocationListController.swift */; };
+		E0D3F755207985B400C2A49A /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3F754207985B400C2A49A /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DFB7B3F120796F9700CA23E5 /* NY Clean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NY Clean.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB7B3F420796F9700CA23E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DFB7B3F620796F9700CA23E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DFB7B3F620796F9700CA23E5 /* BeginnerViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BeginnerViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		DFB7B3F920796F9700CA23E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFB7B3FB20796F9800CA23E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFB7B3FE20796F9800CA23E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFB7B40020796F9800CA23E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D3F7522079806F00C2A49A /* LocationListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListController.swift; sourceTree = "<group>"; };
+		E0D3F754207985B400C2A49A /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				DFB7B3F420796F9700CA23E5 /* AppDelegate.swift */,
-				DFB7B3F620796F9700CA23E5 /* ViewController.swift */,
+				DFB7B3F620796F9700CA23E5 /* BeginnerViewController.swift */,
+				E0D3F754207985B400C2A49A /* JSONParser.swift */,
+				E0D3F7522079806F00C2A49A /* LocationListController.swift */,
 				DFB7B3F820796F9700CA23E5 /* Main.storyboard */,
 				DFB7B3FB20796F9800CA23E5 /* Assets.xcassets */,
 				DFB7B3FD20796F9800CA23E5 /* LaunchScreen.storyboard */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB7B3F720796F9700CA23E5 /* ViewController.swift in Sources */,
+				DFB7B3F720796F9700CA23E5 /* BeginnerViewController.swift in Sources */,
 				DFB7B3F520796F9700CA23E5 /* AppDelegate.swift in Sources */,
+				E0D3F755207985B400C2A49A /* JSONParser.swift in Sources */,
+				E0D3F7532079806F00C2A49A /* LocationListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
