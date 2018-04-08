@@ -18,8 +18,15 @@ class LocationListController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let url = URL(string: "https://data.cityofnewyork.us/resource/ggvk-gyea.json?$$app_token=TsaFLCw8emTtCfbOt0MsufYue")
-    data = request(url: url!)
+  }
+  
+  //TODO: Sort the entire json data
+  func sortData(){
     
   }
+  
+  //Push view into MapController
+  //MapController.userLatitude
+  //MapController.userLongitude
+  //MapController.dataArray == Array<RecycleBin>?
 }
