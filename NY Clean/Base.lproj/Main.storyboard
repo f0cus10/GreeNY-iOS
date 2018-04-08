@@ -22,7 +22,7 @@
                                 <rect key="frame" x="127" y="509" width="121" height="30"/>
                                 <state key="normal" title="Find Nearest Bins"/>
                                 <connections>
-                                    <segue destination="LmH-q9-Tgq" kind="show" id="kTq-1N-9mm"/>
+                                    <action selector="showBins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="45u-Lx-SuJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -33,15 +33,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="LmH-q9-Tgq" kind="show" identifier="hi" id="QK5-t2-34w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Location List Controller-->
         <scene sceneID="LRq-Hb-cHs">
             <objects>
-                <tableViewController id="LmH-q9-Tgq" sceneMemberID="viewController">
+                <tableViewController id="LmH-q9-Tgq" customClass="LocationListController" customModule="NY_Clean" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bSN-Vn-A1s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3H-Zb-jSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="134"/>
+            <point key="canvasLocation" x="945" y="134"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="s70-0g-9fM">

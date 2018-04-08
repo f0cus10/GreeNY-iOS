@@ -54,6 +54,9 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    @IBAction func showBins(_ sender: Any) {
+        performSegue(withIdentifier: "hi", sender: nil)
+    }
     
 //    @IBAction func showButton(){
 //
@@ -69,12 +72,17 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
 //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.destination is LocationListController {
-            let vc = segue.destination as? LocationListController
-            vc?.data = self.myData
-            vc?.userLatitude = self.myLocation.coordinate.latitude
-            vc?.userLongitude = self.myLocation.coordinate.longitude
+       
+        if let vc = segue.destination as? LocationListController {
+            vc.data = self.myData
+            vc.userLatitude = self.myLocation.coordinate.latitude
+            vc.userLongitude = self.myLocation.coordinate.longitude
+            
+            //performSegue(withIdentifier: "hi", sender: nil)
+            
         }
+        
+        
     }
     
     //Delegate function

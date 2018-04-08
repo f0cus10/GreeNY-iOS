@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class LocationListController: UIViewController {
+class LocationListController: UITableViewController {
   
   //JSON DATA
   var data: [RecycleBin]? /* will be initialized through segue */
@@ -18,6 +18,8 @@ class LocationListController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    print(data?.count)
   }
   
   //TODO: Sort the entire json data
