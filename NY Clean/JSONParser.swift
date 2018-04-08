@@ -16,6 +16,7 @@ struct RecycleBin: Decodable {
   let longitude: String?
   let park_site_name: String?
   let site_type: String?
+  let userDistance: Double?
   
 }
 
@@ -43,3 +44,4 @@ func request(url: URL) -> Array<RecycleBin> {
   
   return json;
 }
+

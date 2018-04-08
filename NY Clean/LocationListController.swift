@@ -9,9 +9,12 @@
 import UIKit
 import CoreLocation
 
-class LocationListController: UIViewController, CLLocationManagerDelegate {
+class LocationListController: UIViewController {
   
-  var location: CLLocationManager!
+  //JSON DATA
+  var data: Array<RecycleBin>!
+  var userLatitude: CLLocationDegrees!
+  var userLongitude: CLLocationDegrees!
   
   override func viewDidLoad() {
     super.viewDidLoad()

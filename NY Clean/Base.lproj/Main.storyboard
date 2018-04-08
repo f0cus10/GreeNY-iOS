@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,32 +22,49 @@
                                 <rect key="frame" x="127" y="509" width="121" height="30"/>
                                 <state key="normal" title="Find Nearest Bins"/>
                                 <connections>
-                                    <action selector="showButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="rLg-zo-fvN"/>
+                                    <action selector="showButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="s2N-bt-L4J"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFY-ko-y2Y">
-                                <rect key="frame" x="30" y="38" width="315" height="427.5"/>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EFY-ko-y2Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BnW-G2-jw3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eR2-bu-ZKY" secondAttribute="bottom" constant="128" id="H40-JP-egC"/>
-                            <constraint firstItem="eR2-bu-ZKY" firstAttribute="firstBaseline" secondItem="EFY-ko-y2Y" secondAttribute="baseline" constant="64" id="RvT-AT-jg3"/>
-                            <constraint firstItem="EFY-ko-y2Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="aKy-jL-I1g"/>
                             <constraint firstItem="eR2-bu-ZKY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i8C-GC-HDV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EFY-ko-y2Y" secondAttribute="trailing" constant="30" id="lWz-bz-Kno"/>
-                            <constraint firstItem="EFY-ko-y2Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="wG2-e3-4ZE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="map" destination="EFY-ko-y2Y" id="5pT-ot-kZl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="LRq-Hb-cHs">
+            <objects>
+                <tableViewController id="LmH-q9-Tgq" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bSN-Vn-A1s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WsF-oo-X7B">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WsF-oo-X7B" id="8QF-OY-6tg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LmH-q9-Tgq" id="f4W-QR-2d0"/>
+                            <outlet property="delegate" destination="LmH-q9-Tgq" id="L69-Yt-amK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3H-Zb-jSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="122"/>
         </scene>
     </scenes>
 </document>
