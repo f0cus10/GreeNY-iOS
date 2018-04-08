@@ -43,7 +43,11 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
             controller.userLongitude = myLocation.coordinate.longitude
         }
         
-        present(controller, animated: true, completion: nil)
+        // TODO: dont show modaly... use a segue so that you can transfer the json data to the next controller.
+        // put code here
+        
+        
+        //present(controller, animated: true, completion: nil)
     }
     
     //Delegate function
