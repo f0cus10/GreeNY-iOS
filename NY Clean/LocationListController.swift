@@ -16,19 +16,60 @@ class LocationListController: UITableViewController {
   var userLatitude: CLLocationDegrees?
   var userLongitude: CLLocationDegrees?
   
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return (data?.count)!
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "BinName", for: indexPath)
+    
+    cell.textLabel?.text = data?[indexPath.row].address ?? "No Address"
+    
+    return cell
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    sortData()
+    self.tableView.reloadData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
-    print(data?.count)
   }
   
   //TODO: Sort the entire json data
   func sortData(){
-    
+    //For the entire collection, calculate the data against the user location
+    if var data = data {
+      let newData = calculateDistance(array: data)
+      //Take the newly constructed array and sort it since it follows Comparable protocol
+      self.data = newData.sorted()
+    }
+  }
+  
+  func calculateDistance( array: [RecycleBin] ) -> Array<RecycleBin> {
+    var newData = Array<RecycleBin>()
+    //We assume deg_length is 110.25
+    let deg_length: Double = 110.25
+    //For each of the variables in the array, calculate the distance b/t the user and the RecycleBin
+    for var bin in array{
+      if let lat = bin.latitude, let long = bin.longitude {
+        print(bin.address ?? "No Address")
+        let distX = userLatitude! - Double(lat)!
+        let distY = ((userLongitude! - Double(long)!) * cos(Double(lat)!))
+        let distance = deg_length * sqrt((distX * distX) + (distY * distY))
+        bin.setUserDistance(distance: distance)
+        newData.append(bin)
+      }
+    }
+    return newData
   }
   
   //Push view into MapController
   //MapController.userLatitude
   //MapController.userLongitude
   //MapController.dataArray == Array<RecycleBin>?
+  
 }

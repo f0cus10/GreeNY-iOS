@@ -16,7 +16,27 @@ struct RecycleBin: Decodable {
   let longitude: String?
   let park_site_name: String?
   let site_type: String?
-  let userDistance: Double?
+  var userDistance: Double?
+}
+
+extension RecycleBin {
+  mutating func setUserDistance(distance: Double){
+    self.userDistance = distance
+  }
+}
+extension RecycleBin: Comparable {
+  static func < (lhs: RecycleBin, rhs: RecycleBin) -> Bool {
+    if let left = lhs.userDistance, let right = rhs.userDistance{
+      if left != right {
+        return left < right
+      }
+      return false
+    }
+    return false
+  }
   
+  static func == (lhs: RecycleBin, rhs: RecycleBin)-> Bool {
+    return lhs.userDistance == rhs.userDistance
+  }
 }
 

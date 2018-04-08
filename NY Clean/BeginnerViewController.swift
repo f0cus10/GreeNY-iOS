@@ -79,9 +79,7 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
             vc.userLongitude = self.myLocation.coordinate.longitude
             
             //performSegue(withIdentifier: "hi", sender: nil)
-            
         }
-        
         
     }
     

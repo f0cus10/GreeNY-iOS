@@ -17,7 +17,7 @@ class MapController: UIViewController {
   var userLatitude: CLLocationDegrees?
   var userLongitude: CLLocationDegrees?
   
-  
+  var dataArray: Array<RecycleBin>?
   var center: CLLocationCoordinate2D!
   
   override func viewDidLoad() {
@@ -26,7 +26,6 @@ class MapController: UIViewController {
     if let userLatitude = userLatitude, let userLongitude = userLongitude {
       center = CLLocationCoordinate2DMake(userLatitude, userLongitude)
     }
-    
     showDirections()
   }
   
@@ -40,10 +39,26 @@ class MapController: UIViewController {
     if let center = center {
       myAnnotation.coordinate = center
     }
-    myAnnotation.title = "Current Locatio"
+    myAnnotation.title = "Current Location"
     map.addAnnotation(myAnnotation)
     
     //For each item in the array, annotate those locations
+    if let dataArray = dataArray {
+      for each in dataArray {
+        //Instantiate a new annotation
+        let annotation: MKPointAnnotation = MKPointAnnotation()
+        //Set the coordinates of the annotation
+        if let lat = each.latitude, let long = each.longitude {
+          //Convert the lat and long to double values and set them as co-ordinates
+          let doubleLatitude = Double(lat)
+          let doubleLongitude = Double(long)
+          annotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(doubleLatitude!), CLLocationDegrees(doubleLongitude!))
+        }
+        //Add annotation title
+        annotation.title = each.address ?? "No Address"
+        map.addAnnotation(annotation)
+      }
+    }
     
   }
 }
