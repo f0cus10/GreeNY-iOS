@@ -58,19 +58,6 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
         performSegue(withIdentifier: "hi", sender: nil)
     }
     
-//    @IBAction func showButton(){
-//
-//        // TODO: dont show modaly... use a segue so that you can transfer the json data to the next controller.
-//        // put code here
-//        let controller = LocationListController()
-//        determineCurrentLocation()
-//        controller.data = myData
-//        controller.userLatitude = myLocation.coordinate.latitude
-//        controller.userLongitude = myLocation.coordinate.longitude
-//        navigationController?.pushViewController(controller, animated: true)
-//        //present(controller, animated: true, completion: nil)
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
        
         if let vc = segue.destination as? LocationListController {

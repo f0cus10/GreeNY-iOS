@@ -64,6 +64,9 @@
                             <outlet property="delegate" destination="LmH-q9-Tgq" id="L69-Yt-amK"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="wF7-kp-Xeb" kind="show" identifier="map" id="Pxg-Au-g5m"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3H-Zb-jSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

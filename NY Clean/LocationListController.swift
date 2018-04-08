@@ -16,6 +16,10 @@ class LocationListController: UITableViewController {
   var userLatitude: CLLocationDegrees?
   var userLongitude: CLLocationDegrees?
   
+  //Array to be passed on later
+  var passArray: [RecycleBin]?
+  
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return (data?.count)!
   }
@@ -37,6 +41,25 @@ class LocationListController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //If a row is selected, take the indexes that are nearby to the user.
+    //2 from the bottom, 2 from the top and pass them into the map
+    passArray = Array<RecycleBin>()
+    for i in 0...5 {
+      passArray?.append(self.data![indexPath.row+i])
+    }
+    
+    performSegue(withIdentifier: "map", sender: self)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let vc = segue.destination as? MapController {
+      vc.dataArray = self.data
+      vc.userLatitude = self.userLatitude
+      vc.userLongitude = self.userLongitude
+    }
   }
   
   //TODO: Sort the entire json data
