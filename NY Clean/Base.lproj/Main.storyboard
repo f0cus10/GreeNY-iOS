@@ -22,7 +22,7 @@
                                 <rect key="frame" x="127" y="509" width="121" height="30"/>
                                 <state key="normal" title="Find Nearest Bins"/>
                                 <connections>
-                                    <action selector="showButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="s2N-bt-L4J"/>
+                                    <segue destination="LmH-q9-Tgq" kind="show" id="kTq-1N-9mm"/>
                                 </connections>
                             </button>
                         </subviews>

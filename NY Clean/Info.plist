@@ -4,6 +4,8 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location data to find nearest bins</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Just give me permission, dammit</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

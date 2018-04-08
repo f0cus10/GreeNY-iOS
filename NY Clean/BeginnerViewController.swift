@@ -13,10 +13,13 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
     var myLocation: CLLocation!
+    var myData = Array<RecycleBin>()
+    
+    //Define hardcoded URL
+    let url = URL(string: "https://data.cityofnewyork.us/resource/ggvk-gyea.json?$$app_token=TsaFLCw8emTtCfbOt0MsufYue")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         //Load background image
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -27,27 +30,51 @@ class BeginnerViewController: UIViewController, CLLocationManagerDelegate {
         self.view.insertSubview(backgroundImage, at: 0)
         
         print("View has loaded")
+        
+        //Create an async request to make an API Call
+        let session = URLSession.shared
+        let request = URLRequest(url: url!)
+        
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            do {
+                let json = try JSONDecoder().decode([RecycleBin].self, from: data!)
+                
+                for each in json {
+                    self.myData.append(each)
+                    //print(each.address ?? "no address")
+                }
+                
+            } catch let jsonError {
+                print ("Error, \(jsonError)")
+            }
+        }
+        task.resume()
+        determineCurrentLocation()
     }
     
-    @IBAction func showButton(){
-        //Make an API call and change the label accordingly
-        print("Button Pressed")
-        let data = request(url: URL(string: "https://data.cityofnewyork.us/resource/ggvk-gyea.json?$$app_token=TsaFLCw8emTtCfbOt0MsufYue")!)
-        //Instantiate a new viewController
-        let controller = LocationListController()
-        //Pass the value into controller
-        //Get the userlocation data
-        controller.data = data
-        if let myLocation = myLocation {
-            controller.userLatitude = myLocation.coordinate.latitude
-            controller.userLongitude = myLocation.coordinate.longitude
+    
+    
+//    @IBAction func showButton(){
+//
+//        // TODO: dont show modaly... use a segue so that you can transfer the json data to the next controller.
+//        // put code here
+//        let controller = LocationListController()
+//        determineCurrentLocation()
+//        controller.data = myData
+//        controller.userLatitude = myLocation.coordinate.latitude
+//        controller.userLongitude = myLocation.coordinate.longitude
+//        navigationController?.pushViewController(controller, animated: true)
+//        //present(controller, animated: true, completion: nil)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.destination is LocationListController {
+            let vc = segue.destination as? LocationListController
+            vc?.data = self.myData
+            vc?.userLatitude = self.myLocation.coordinate.latitude
+            vc?.userLongitude = self.myLocation.coordinate.longitude
         }
-        
-        // TODO: dont show modaly... use a segue so that you can transfer the json data to the next controller.
-        // put code here
-        
-        
-        //present(controller, animated: true, completion: nil)
     }
     
     //Delegate function

@@ -20,28 +20,3 @@ struct RecycleBin: Decodable {
   
 }
 
-func request(url: URL) -> Array<RecycleBin> {
-  //Create a new session
-  let session = URLSession.shared
-  let request = URLRequest(url: url)
-  //create a temp variable to put decoded values into
-  var json = [RecycleBin]()
-  //Async request
-  let task = session.dataTask(with: request) { (data, response, error) in
-    do {
-      json = try JSONDecoder().decode([RecycleBin].self, from: data!)
-      
-//      for bins in json {
-//        print(bins.address ?? "no address")
-//      }
-      
-    }
-    catch let jsonError {
-      print("error, \(jsonError)")
-    }
-  }
-  task.resume()
-  
-  return json;
-}
-
