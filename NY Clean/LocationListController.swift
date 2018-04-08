@@ -65,7 +65,7 @@ class LocationListController: UITableViewController {
   //TODO: Sort the entire json data
   func sortData(){
     //For the entire collection, calculate the data against the user location
-    if var data = data {
+    if let data = data {
       let newData = calculateDistance(array: data)
       //Take the newly constructed array and sort it since it follows Comparable protocol
       self.data = newData.sorted()
@@ -79,7 +79,7 @@ class LocationListController: UITableViewController {
     //For each of the variables in the array, calculate the distance b/t the user and the RecycleBin
     for var bin in array{
       if let lat = bin.latitude, let long = bin.longitude {
-        print(bin.address ?? "No Address")
+//        print(bin.address ?? "No Address")
         let distX = userLatitude! - Double(lat)!
         let distY = ((userLongitude! - Double(long)!) * cos(Double(lat)!))
         let distance = deg_length * sqrt((distX * distX) + (distY * distY))
