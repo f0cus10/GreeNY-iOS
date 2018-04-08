@@ -25,7 +25,7 @@ func request(url: URL) -> Array<RecycleBin> {
   let session = URLSession.shared
   let request = URLRequest(url: url)
   //create a temp variable to put decoded values into
-  var json: Array<RecycleBin>!
+  var json = [RecycleBin]()
   //Async request
   let task = session.dataTask(with: request) { (data, response, error) in
     do {
